@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 type: software
-title: "angularcorr: angle-resolved annihilation-photon correlation factors"
+title: "Angular Factors Calculator: angle-resolved annihilation-photon correlation factors"
 version: 0.1.0-dev
 authors:
   - family-names: Priyadarshi

@@ -1,6 +1,7 @@
-# angularcorr
+# Angular Factors Calculator
 
-`angularcorr` calculates the annihilation-photon angular-correlation factors
+Angular Factors Calculator provides the `angularcorr` command for calculating
+the annihilation-photon angular-correlation factors
 `w_L1`, `w_L2`, and `w_G` for a centered annular detector. It can either fit
 the directional detector response from a Geant4 ROOT file or calculate the
 factors from supplied mass response coefficients.

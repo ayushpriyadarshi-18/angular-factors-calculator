@@ -3,7 +3,7 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "angularcorr"
+name = "angular-factors-calculator"
 version = "0.1.0.dev0"
 description = "Angle-resolved annihilation-photon correlation factors for annular detectors"
 readme = "README.md"
