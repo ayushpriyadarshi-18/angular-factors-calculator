@@ -24,7 +24,7 @@ $$
 The path calculation uses the centered-source symmetry
 $\bar{\theta}=\min(\theta,\pi-\theta)$. The NaI path length is
 
-$$
+```math
 x(\theta)=
 \begin{cases}
 \dfrac{h}{\cos\bar{\theta}}-\dfrac{r_1}{\sin\bar{\theta}},
@@ -32,7 +32,7 @@ x(\theta)=
 \dfrac{r_2-r_1}{\sin\bar{\theta}},
 & \theta_{\mathrm{cap}}\leq\bar{\theta}\leq\pi/2.
 \end{cases}
-$$
+```
 
 Directional responses are modelled as
 
