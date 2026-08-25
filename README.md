@@ -2,7 +2,7 @@
 
 Angular Factors Calculator provides the `angularcorr` command for calculating
 the annihilation-photon angular-correlation factors
-`w_L1`, `w_L2`, and `w_G` for a centered annular detector. It can either fit
+$w_{L1}$, $w_{L2}$, and $w_G$ for a centered annular detector. It can either fit
 the directional detector response from a Geant4 ROOT file or calculate the
 factors from supplied mass response coefficients.
 
@@ -12,27 +12,58 @@ an annular NaI(Tl) detector*.
 
 ## Scientific model
 
-For inner radius `r1`, outer radius `r2`, and half-length `h`, the angular
+For inner radius $r_1$, outer radius $r_2$, and half-length $h$, the angular
 limits are
 
-```text
-theta_min = atan(r1 / h)
-theta_cap = atan(r2 / h)
-theta_max = pi - theta_min
-```
+$$
+\theta_{\min}=\tan^{-1}\!\left(\frac{r_1}{h}\right),\qquad
+\theta_{\mathrm{cap}}=\tan^{-1}\!\left(\frac{r_2}{h}\right),\qquad
+\theta_{\max}=\pi-\theta_{\min}.
+$$
 
 The path calculation uses the centered-source symmetry
-`theta_bar = min(theta, pi - theta)`. Directional responses are modelled as
+$\bar{\theta}=\min(\theta,\pi-\theta)$. The NaI path length is
 
-```text
-epsilon(theta) = 1 - exp[-mu x(theta)]
-```
+$$
+x(\theta)=
+\begin{cases}
+\dfrac{h}{\cos\bar{\theta}}-\dfrac{r_1}{\sin\bar{\theta}},
+& \theta_{\min}\leq\bar{\theta}<\theta_{\mathrm{cap}},\\[6pt]
+\dfrac{r_2-r_1}{\sin\bar{\theta}},
+& \theta_{\mathrm{cap}}\leq\bar{\theta}\leq\pi/2.
+\end{cases}
+$$
+
+Directional responses are modelled as
+
+$$
+\epsilon(\theta)=1-\exp[-\mu x(\theta)],
+$$
 
 and the user-facing mass coefficients are converted with
 
-```text
-mu = (mu/rho) rho.
-```
+$$
+\mu=\left(\frac{\mu}{\rho}\right)\rho.
+$$
+
+With the angular average
+
+$$
+\langle f\rangle=
+\int_{\theta_{\min}}^{\theta_{\max}}
+f(\theta)\frac{\sin\theta}{2}\,\mathrm{d}\theta,
+$$
+
+the calculated factors are
+
+$$
+w_{L1}=\frac{\langle\epsilon_{511}\epsilon_{t,511}\rangle}
+{\langle\epsilon_{511}\rangle\langle\epsilon_{t,511}\rangle},\qquad
+w_{L2}=\frac{\langle\epsilon_{t,511}^{2}\rangle}
+{\langle\epsilon_{t,511}\rangle^{2}},\qquad
+w_G=\frac{\langle\epsilon_{511}^{2}\rangle}
+{\langle\epsilon_{511}\rangle^{2}}.
+$$
 
 The five required angular moments are evaluated with piecewise
 `scipy.integrate.quad`. A full-interval midpoint calculation provides an
@@ -74,8 +105,9 @@ angularcorr analyze path/to/events.root \
 ```
 
 Lengths are in centimetres and density is in grams per cubic centimetre. The
-default analysis uses 511 keV photons, a 0.01 keV full-energy half-window, and
-0.25 degree folded-angle bins.
+default analysis uses $511~\mathrm{keV}$ photons, a
+$0.01~\mathrm{keV}$ full-energy half-window, and $0.25^{\circ}$ folded-angle
+bins.
 
 Save full structured results and per-bin counts with:
 
@@ -106,22 +138,22 @@ calculation.
 
 ## Reference result
 
-For the SNP bare-annular simulation with one million isotropic 511 keV
-photons, `r1 = 5.08 cm`, `r2 = 10.16 cm`, `h = 7.62 cm`, and
-`rho = 3.67 g/cm^3`, the regression target is:
+For the SNP bare-annular simulation with one million isotropic
+$511~\mathrm{keV}$ photons,
+$r_1=5.08~\mathrm{cm}$, $r_2=10.16~\mathrm{cm}$,
+$h=7.62~\mathrm{cm}$, and $\rho=3.67~\mathrm{g\,cm^{-3}}$, the regression
+target is:
 
-```text
-accepted photons       = 831,618
-primary interactions   = 649,484
-full-energy events     = 494,474
-
-mu_total/rho           = 0.0936771420 cm^2/g
-mu_peak/rho            = 0.0532134054 cm^2/g
-
-w_L1                   = 1.260741
-w_L2                   = 1.253825
-w_G                    = 1.269388
-```
+| Quantity | Reference value |
+|---|---:|
+| Accepted photons | $831{,}618$ |
+| Primary interactions | $649{,}484$ |
+| Full-energy events | $494{,}474$ |
+| $\mu_t/\rho$ | $0.0936771420~\mathrm{cm^2\,g^{-1}}$ |
+| $\mu_{\mathrm{peak}}/\rho$ | $0.0532134054~\mathrm{cm^2\,g^{-1}}$ |
+| $w_{L1}$ | $1.260741$ |
+| $w_{L2}$ | $1.253825$ |
+| $w_G$ | $1.269388$ |
 
 The large reference ROOT file is not stored in this repository.
 
@@ -148,7 +180,7 @@ source holder, housing, source encapsulation, finite source size, displacement,
 detector resolution, or experimental threshold changes the response and
 requires an appropriate simulation and model assessment.
 
-The fitted `mu_peak/rho` is an effective full-energy response coefficient. It
+The fitted $\mu_{\mathrm{peak}}/\rho$ is an effective full-energy response coefficient. It
 is not automatically identical to the physical photoelectric mass attenuation
 coefficient tabulated by NIST. The fitted total coefficient can be compared
 with the corresponding NIST total attenuation coefficient under the stated
