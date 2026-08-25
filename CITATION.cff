@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "angularcorr: angle-resolved annihilation-photon correlation factors"
+version: 0.1.0-dev
+authors:
+  - family-names: Priyadarshi
+    given-names: Ayush
+abstract: >-
+  A Python package for fitting angle-resolved total-interaction and effective
+  full-energy response coefficients from Geant4 ROOT events and calculating
+  annihilation-photon angular-correlation factors for centered annular
+  detectors.
+keywords:
+  - angular correlation
+  - annihilation photons
+  - coincidence summing
+  - Geant4
+  - NaI detector
+license: BSD-3-Clause

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "angularcorr"
+version = "0.1.0.dev0"
+description = "Angle-resolved annihilation-photon correlation factors for annular detectors"
+readme = "README.md"
+license = "BSD-3-Clause"
+requires-python = ">=3.10"
+authors = [
+    {name = "Ayush Priyadarshi"},
+]
+keywords = [
+    "annihilation photons",
+    "angular correlation",
+    "coincidence summing",
+    "Geant4",
+    "NaI detector",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.13",
+    "uproot>=5.0",
+    "awkward>=2.0",
+    "matplotlib>=3.8",
+]
+
+[project.scripts]
+angularcorr = "angularcorr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
