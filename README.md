@@ -6,9 +6,13 @@ $w_{L1}$, $w_{L2}$, and $w_G$ for a centered annular detector. It can either fit
 the directional detector response from a Geant4 ROOT file or calculate the
 factors from supplied mass response coefficients.
 
-The implementation follows the centered bare-annular NaI(Tl) model used in
-the SNP 2026 work *Angle-resolved annihilation-photon correlation factors for
-an annular NaI(Tl) detector*.
+## Associated publication
+
+This software accompanies the manuscript *Angle-resolved annihilation-photon
+correlation factors for an annular NaI(Tl) detector* by Ayush Priyadarshi,
+Rahul Chauhan, Asit Srivastava, and G. Anil Kumar, submitted to the DAE
+Symposium on Nuclear Physics 2026. The implementation follows the centered
+bare-annular NaI(Tl) model presented in that work.
 
 ## Scientific model
 
