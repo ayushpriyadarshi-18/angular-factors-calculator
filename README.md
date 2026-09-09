@@ -10,8 +10,8 @@ factors from supplied mass response coefficients.
 
 This software accompanies the manuscript *Angle-resolved annihilation-photon
 correlation factors for an annular NaI(Tl) detector* by Ayush Priyadarshi,
-Rahul Chauhan, Asit Srivastava, and G. Anil Kumar, prepared for submission to
-the DAE Symposium on Nuclear Physics 2026. The implementation follows the
+Rahul Chauhan, Asit Srivastava, and G. Anil Kumar, submitted to the DAE
+Symposium on Nuclear Physics 2026 on 8 September 2026. The implementation follows the
 centered bare-annular NaI(Tl) model presented in that work.
 
 ## Scientific model
